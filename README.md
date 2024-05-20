@@ -1,4 +1,4 @@
-Currently in development.
+Currently working and still in development.
 
 
 ![Project Structure][project_structure]
