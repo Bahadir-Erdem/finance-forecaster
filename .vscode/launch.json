@@ -10,6 +10,16 @@
                 "port": 9091
             },
             "preLaunchTask": "func: host start"
+        },
+        {
+            "name": "Python: Current File",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "env": {
+                "PYTHONPATH": "${workspaceRoot}",
+            }
         }
     ]
 }

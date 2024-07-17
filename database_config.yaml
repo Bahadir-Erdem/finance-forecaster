@@ -1,0 +1,53 @@
+data_targets:
+  databases:
+    local:
+      postgres:
+        connection_string: "postgresql://<user_name>:<password>@<server_name>:<port>/<database_name>"
+      sql_server:
+        connection_string: "mssql+pyodbc://<user_name>:<password>@<server_name>/<database_name>?driver=ODBC+Driver+18+for+SQL+Server&TrustServerCertificate=yes"
+    remote:
+      azure_sql_server:
+        connection_string: "mssql+pyodbc://<user_name>:<password>@<server_name>:1433/<database_name>?driver=ODBC+Driver+18+for+SQL+Server&TrustServerCertificate=no&Encrypt=yes"
+
+data_sources:
+  api_data_sources:
+    coinranking_daily_coin_data:
+      url: "https://api.coinranking.com/v2/coins"
+      method: "GET"
+    coinranking_coin_uuid:
+      url: "https://api.coinranking.com/v2/coins"
+      method: "GET"
+      headers:
+        x-access-token: "" # write your api key
+      params:
+        scopeId: "marketCap"
+        scopeLimit: 10
+    coinranking_coin_price_history:
+      url: "https://api.coinranking.com/v2/coin/<uuid>/history"
+      method: "GET"
+      headers:
+        x-access-token: "" # write your api key
+      params:
+        timePeriod: "5y"
+    financial_modeling_prep_stock_info:
+      url: "https://financialmodelingprep.com/api/v3/profile/<symbol>"
+      method: "GET"
+      params:
+        apikey: "" # write your api key
+    finnhub_stock_price:
+      url: "https://finnhub.io/api/v1/quote?symbol=<symbol>"
+      method: "GET"
+      params:
+        token: "" # write your api key
+  web_scraping_sources:
+    stock_analysis_top_stocks:
+      url: "https://stockanalysis.com/list/biggest-companies/"
+      method: "GET"
+
+pipelines:
+  ml_price_prediction:
+    past_number_of_years_stock_price_history: 5
+    number_of_stock_to_get: 5
+    past_number_of_years_coin_price_history: 5
+    number_of_coin_to_get: 5
+    number_of_days_to_predict: 14
