@@ -139,9 +139,6 @@ class CoinrankingToDailyStockData(Transformer):
         self.processed_data = self.date.merge_with_date(df_with_time)
         return self.processed_data
 
-    def get_processed_data():
-        pass
-
 
 class DailyStockData(Transformer):
     def __init__(

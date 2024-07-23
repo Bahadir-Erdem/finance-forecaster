@@ -1,5 +1,4 @@
 import yaml
-import yfinance as yf
 
 from src.data_targets.targets import DBPredictionTarget
 from src.ml.model import Model
