@@ -58,10 +58,10 @@ These are the final results:
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-[project_structure]: /images/project_structure.png
-[er_diagram]: /images/er_diagram.png
-[aapl]: /images/aapl.png
-[msft]: /images/aapl.png
-[bitcoin]: /images/bitcoin.png
-[etherium]: /images/etherium.png
-[lightgbm_performance]: /images/lightgbm_performance.png
+[project_structure]: images/project_structure.png
+[er_diagram]: images/er_diagram.png
+[aapl]: images/aapl.png
+[msft]: images/aapl.png
+[bitcoin]: images/bitcoin.png
+[etherium]: images/etherium.png
+[lightgbm_performance]: images/lightgbm_performance.png
