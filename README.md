@@ -61,7 +61,7 @@ These are the final results:
 [project_structure]: images/project_structure.png
 [er_diagram]: images/er_diagram.png
 [aapl]: images/aapl.png
-[msft]: images/aapl.png
+[msft]: images/msft.png
 [bitcoin]: images/bitcoin.png
 [etherium]: images/etherium.png
 [lightgbm_performance]: images/lightgbm_performance.png
