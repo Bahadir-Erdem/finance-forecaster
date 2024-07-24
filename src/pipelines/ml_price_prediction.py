@@ -55,6 +55,9 @@ def run():
         .get("azure_sql_server")
         .get("connection_string")
     )
+    MAX_RETRY_COUNT_ON_FAIL = (
+        yaml_dictionary.get("pipelines").get("general").get("max_retry_count_on_fail")
+    )
 
     top_stocks_scraper = UrlWebScraper(top_stocks_config["url"])
     stock_price_history = YahooStockPriceHistory()
@@ -76,5 +79,5 @@ def run():
     model = Model(PIPELINE["number_of_days_to_predict"])
     prediction_transformer = PredictionsData(training_data_transformer, model)
 
-    target = DBPredictionTarget(CONNECTION_STRING)
+    target = DBPredictionTarget(CONNECTION_STRING, max_retries=MAX_RETRY_COUNT_ON_FAIL)
     target.save(prediction_transformer)

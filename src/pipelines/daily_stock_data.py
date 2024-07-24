@@ -35,7 +35,9 @@ def run():
         .get("azure_sql_server")
         .get("connection_string")
     )
-
+    MAX_RETRY_COUNT_ON_FAIL = (
+        yaml_dictionary.get("pipelines").get("general").get("max_retry_count_on_fail")
+    )
     top_stocks_scraper = UrlWebScraper(top_stocks_config["url"])
     stock_data_price_api = FinnhubStockPrice(
         url=stock_price_config["url"], params=stock_price_config["params"]
@@ -47,5 +49,7 @@ def run():
         top_stocks_scraper, stock_data_info_api, stock_data_price_api
     )
 
-    stock_save_target = DBStockTarget(CONNECTION_STRING)
+    stock_save_target = DBStockTarget(
+        CONNECTION_STRING, max_retries=MAX_RETRY_COUNT_ON_FAIL
+    )
     stock_save_target.save(stock_data_transformer)

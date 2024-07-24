@@ -21,10 +21,12 @@ def run():
         .get("api_data_sources")
         .get("coinranking_daily_coin_data")
     )
-
+    MAX_RETRY_COUNT_ON_FAIL = (
+        yaml_dictionary.get("pipelines").get("general").get("max_retry_count_on_fail")
+    )
     coinranking_api_source = APISource(
         COINRANKING_API_SOURCE["url"], COINRANKING_API_SOURCE["method"]
     )
     coinranking_transformer = CoinrankingToDailyStockData(coinranking_api_source)
-    data_target = DBCoinTarget(CONNECTION_STRING)
+    data_target = DBCoinTarget(CONNECTION_STRING, max_retries=MAX_RETRY_COUNT_ON_FAIL)
     data_target.save(coinranking_transformer)

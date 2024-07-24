@@ -45,6 +45,8 @@ data_sources:
       method: "GET"
 
 pipelines:
+  general:
+    max_retry_count_on_fail: 6
   ml_price_prediction:
     past_number_of_years_stock_price_history: 5
     number_of_stock_to_get: 5
