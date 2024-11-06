@@ -140,7 +140,6 @@ src/timer_trigger_get_daily_stock_data/date.py
 src/timer_trigger_get_daily_stock_data/stock_data_fetcher.py
 src/timer_trigger_get_daily_stock_data/stock_data_handler.py
 src/timer_trigger_get_daily_stock_data/time.py
-src/data_targets/targets.py
 src/etl_lightgbm_predict_insert/__init__.py
 src/etl_lightgbm_predict_insert/blueprint.py
 src/etl_lightgbm_predict_insert/coin_data.py
